@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Account - ResumeBuilder</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+<body>
+
+<div class="auth-page">
+
+    <!-- LEFT -->
+
+    <section class="auth-left">
+
+        <div class="auth-content">
+
+            <div class="logo">
+                ResumeBuilder
+            </div>
+
+            <h1>
+                Create Your Professional Resume.
+            </h1>
+
+            <p>
+                Start building your resume today with professional
+                templates and powerful resume tools.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT -->
+
+    <section class="auth-right">
+
+        <div class="auth-card">
+
+            <h2>Create Account 🚀</h2>
+
+            <p class="auth-subtitle">
+                Create your free ResumeBuilder account.
+            </p>
+
+
+            <div id="message" class="message"></div>
+
+
+            <form id="registerForm">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-button"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <div class="auth-footer">
+
+                Already have an account?
+
+                <a
+                    href="login.html"
+                    class="auth-link"
+                >
+                    Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeBuilder - Create Resume</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Resume<span>Builder</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#templates">
+                Templates
+            </a>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#plans">
+                Plans
+            </a>
+
+            <a href="#builder">
+                Builder
+            </a>
+
+            <button
+                type="button"
+                id="themeToggle"
+                class="theme-toggle"
+                onclick="toggleTheme()">
+
+                🌙 Dark
+
+            </button>
+
+            <a href="login.html">
+
+                <button
+                    class="login-btn"
+                    type="button">
+
+                    Login
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section
+        class="hero"
+        id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                🚀 Professional Resume Builder
+            </span>
+
+            <h1>
+
+                Build Your Professional
+
+                <span>
+                    Resume Easily
+                </span>
+
+            </h1>
+
+            <p>
+
+                Create a professional, ATS-friendly resume in minutes
+                with beautiful templates and powerful tools.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    type="button"
+                    onclick="scrollToBuilder()">
+
+                    ✨ Create Resume
+
+                </button>
+
+                <button
+                    class="import-btn"
+                    type="button"
+                    onclick="openResumeImport()">
+
+                    📄 Import Existing Resume
+
+                </button>
+
+            </div>
+
+            <input
+                type="file"
+                id="resumeImportInput"
+                accept=".pdf,.docx"
+                style="display: none;">
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="resume-mini">
+
+                <div class="mini-header"></div>
+
+                <div class="mini-line"></div>
+
+                <div class="mini-line short"></div>
+
+                <div class="mini-title"></div>
+
+                <div class="mini-line"></div>
+
+                <div class="mini-line"></div>
+
+                <div class="mini-line short"></div>
+
+                <div class="mini-title"></div>
+
+                <div class="mini-line"></div>
+
+                <div class="mini-line short"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= IMPORT STATUS ================= -->
+
+    <section
+        id="importStatus"
+        style="
+            display: none;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 15px 20px;
+            border-radius: 10px;
+            background: #eef6ff;
+            color: #2563eb;
+            text-align: center;
+        ">
+
+        <strong id="importStatusText">
+            Importing resume...
+        </strong>
+
+    </section>
+
+
+    <!-- ================= TEMPLATES ================= -->
+
+    <section
+        class="templates-section"
+        id="templates">
+
+        <div class="templates-header">
+
+            <h2>
+                Choose Your Resume Template
+            </h2>
+
+            <p>
+                Select a professional template before
+                creating your resume.
+            </p>
+
+        </div>
+
+
+        <div class="templates-container">
+
+
+            <!-- ================= PROFESSIONAL ================= -->
+
+            <div class="template-card">
+
+                <div class="template-preview professional-template">
+
+                    <div class="template-top"></div>
+
+                    <div class="template-line title-line"></div>
+
+                    <div class="template-line"></div>
+
+                    <div class="template-line short-line"></div>
+
+                    <div class="template-heading"></div>
+
+                    <div class="template-line"></div>
+
+                    <div class="template-line"></div>
+
+                </div>
+
+                <h3>
+                    Professional
+                </h3>
+
+                <p>
+                    Clean corporate resume design.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="selectTemplate('professional')">
+
+                    Use Template
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= MODERN ================= -->
+
+            <div
+                class="template-card"
+                data-premium="true">
+
+                <div class="template-preview modern-template">
+
+                    <div class="modern-sidebar"></div>
+
+                    <div class="modern-content">
+
+                        <div class="template-line title-line"></div>
+
+                        <div class="template-line"></div>
+
+                        <div class="template-line short-line"></div>
+
+                        <div class="template-heading"></div>
+
+                        <div class="template-line"></div>
+
+                        <div class="template-line"></div>
+
+                    </div>
+
+                </div>
+
+                <h3>
+                    Modern
+                </h3>
+
+                <p>
+                    Stylish sidebar-based resume.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="if (requirePremium()) selectTemplate('modern');">
+
+                    💎 Use Premium Template
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= CLASSIC ================= -->
+
+            <div
+                class="template-card"
+                data-premium="true">
+
+                <div class="template-preview classic-template">
+
+                    <div class="classic-header"></div>
+
+                    <div class="template-line title-line"></div>
+
+                    <div class="template-line"></div>
+
+                    <div class="template-line short-line"></div>
+
+                    <div class="template-heading"></div>
+
+                    <div class="template-line"></div>
+
+                    <div class="template-line short-line"></div>
+
+                </div>
+
+                <h3>
+                    Classic
+                </h3>
+
+                <p>
+                    Simple and traditional resume.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="if (requirePremium()) selectTemplate('classic');">
+
+                    💎 Use Premium Template
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section
+        class="features"
+        id="features">
+
+        <h2>
+            Why Choose Resume Builder?
+        </h2>
+
+        <div class="feature-container">
+
+
+            <!-- FREE FEATURE -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Fast & Easy
+                </h3>
+
+                <p>
+                    Build your resume within minutes.
+                </p>
+
+            </div>
+
+
+            <!-- FREE FEATURE -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Professional Templates
+                </h3>
+
+                <p>
+                    Choose beautiful resume templates.
+                </p>
+
+            </div>
+
+
+            <!-- PREMIUM FEATURE -->
+
+            <div
+                class="feature-card"
+                data-premium="true"
+                onclick="openATSChecker()"
+                style="cursor: pointer;">
+
+                <div class="feature-icon">
+                    📊
+                </div>
+
+                <h3>
+                    💎 ATS Resume Checker
+                </h3>
+
+                <p>
+                    Check your resume ATS score,
+                    keywords and formatting.
+                </p>
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    onclick="event.stopPropagation(); openATSChecker();">
+
+                    💎 Check ATS Score
+
+                </button>
+
+            </div>
+
+
+            <!-- PREMIUM FEATURE -->
+
+            <div
+                class="feature-card"
+                data-premium="true"
+                onclick="openAIBuilder()"
+                style="cursor: pointer;">
+
+                <div class="feature-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    💎 AI Resume Builder
+                </h3>
+
+                <p>
+                    Improve your resume content
+                    with AI-powered suggestions.
+                </p>
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    onclick="event.stopPropagation(); openAIBuilder();">
+
+                    🤖 Use AI Builder
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PLANS / PRICING
+    ====================================================== -->
+
+    <section
+        class="pricing-section"
+        id="plans">
+
+        <div class="pricing-header">
+
+            <div class="pricing-badge">
+                Choose Your Plan
+            </div>
+
+            <h2>
+                Build a Resume That
+                <span>Gets You Hired</span>
+            </h2>
+
+            <p>
+                Choose the plan that fits your career goals.
+                Upgrade anytime and unlock powerful AI and ATS features.
+            </p>
+
+        </div>
+
+
+        <!-- ================= CURRENT PLAN ================= -->
+
+        <div class="current-plan-section">
+
+            <div class="current-plan-card">
+
+                <div>
+
+                    <span class="current-label">
+                        Current Plan
+                    </span>
+
+                    <h3 id="currentPlan">
+                        FREE
+                    </h3>
+
+                </div>
+
+                <div id="currentPlanDescription">
+                    You are currently using the Free plan.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= PRICING CONTAINER ================= -->
+
+        <div class="pricing-container">
+
+
+            <!-- ================= FREE PLAN ================= -->
+
+            <div class="pricing-card">
+
+                <div class="plan-icon">
+                    🆓
+                </div>
+
+                <h3>
+                    Free
+                </h3>
+
+                <p class="plan-description">
+                    Perfect for getting started.
+                </p>
+
+
+                <div class="price">
+
+                    <span class="currency">
+                        ₹
+                    </span>
+
+                    <span class="amount">
+                        0
+                    </span>
+
+                    <span class="period">
+                        /month
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="plan-button free-button"
+                    onclick="selectFreePlan()">
+
+                    Current Plan
+
+                </button>
+
+
+                <div class="feature-title">
+                    Free includes:
+                </div>
+
+
+                <ul class="plan-features">
+
+                    <li>
+                        <span>✓</span>
+                        1 Resume
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Basic Resume Builder
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        3 Basic Templates
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Personal Information
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Education & Experience
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Skills & Projects
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Basic PDF Download
+                    </li>
+
+                    <li class="disabled">
+                        <span>×</span>
+                        AI Resume Builder
+                    </li>
+
+                    <li class="disabled">
+                        <span>×</span>
+                        ATS Score Checker
+                    </li>
+
+                    <li class="disabled">
+                        <span>×</span>
+                        Premium Templates
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ================= PREMIUM PLAN ================= -->
+
+            <div
+                class="pricing-card premium-card"
+                data-premium="true">
+
+                <div class="popular-badge">
+                    ⭐ MOST POPULAR
+                </div>
+
+
+                <div class="plan-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Premium
+                </h3>
+
+                <p class="plan-description">
+                    Everything you need to create a professional resume.
+                </p>
+
+
+                <div class="price">
+
+                    <span class="currency">
+                        ₹
+                    </span>
+
+                    <span class="amount">
+                        199
+                    </span>
+
+                    <span class="period">
+                        /month
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="plan-button premium-button"
+                    onclick="buyPremium()">
+
+                    💎 Upgrade to Premium
+
+                </button>
+
+
+                <div class="feature-title">
+                    Everything in Free, plus:
+                </div>
+
+
+                <ul class="plan-features">
+
+                    <li>
+                        <span>✓</span>
+                        Unlimited Resumes
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        All Premium Templates
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Professional Summary
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Career Objective
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Skills Suggestions
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Content Improvement
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Grammar Correction
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        ATS Score Checker
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Missing Keywords
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Skills Match Analysis
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Formatting Suggestions
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Unlimited PDF Downloads
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Remove Watermark
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ================= PRO PLAN ================= -->
+
+            <div class="pricing-card pro-card">
+
+                <div class="plan-icon">
+                    💎
+                </div>
+
+                <h3>
+                    Pro
+                </h3>
+
+                <p class="plan-description">
+                    Advanced tools for serious job seekers.
+                </p>
+
+
+                <div class="price">
+
+                    <span class="currency">
+                        ₹
+                    </span>
+
+                    <span class="amount">
+                        499
+                    </span>
+
+                    <span class="period">
+                        /month
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="plan-button pro-button"
+                    onclick="selectPlan('PRO')">
+
+                    Upgrade to Pro
+
+                </button>
+
+
+                <div class="feature-title">
+                    Everything in Premium, plus:
+                </div>
+
+
+                <ul class="plan-features">
+
+                    <li>
+                        <span>✓</span>
+                        Advanced ATS Analysis
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Multiple Resume Versions
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Job Description Optimization
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Resume Rewrite
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Advanced Keyword Matching
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Job-Specific Resume
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Priority AI Processing
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Priority Support
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BUILDER ================= -->
+
+    <section
+        class="builder-section"
+        id="builder">
+
+        <div class="builder-heading">
+
+            <div>
+
+                <h2>
+                    Create Your Resume
+                </h2>
+
+                <p>
+                    Create a new resume or import your existing PDF/DOCX resume.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="import-btn"
+                onclick="openResumeImport()">
+
+                📄 Import Resume
+
+            </button>
+
+        </div>
+
+
+        <div class="builder-container">
+
+
+            <!-- ================= FORM ================= -->
+
+            <div class="resume-form">
+
+
+                <!-- PERSONAL INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>
+                        👤 Personal Information
+                    </h3>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            oninput="updateResume()">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="City, State, Country"
+                            oninput="updateResume()">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="example@gmail.com"
+                            oninput="updateResume()">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="+91 98765 43210"
+                            oninput="updateResume()">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            LinkedIn
+                        </label>
+
+                        <input
+                            type="url"
+                            id="linkedin"
+                            placeholder="https://linkedin.com/in/yourname"
+                            oninput="updateResume()">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            GitHub
+                        </label>
+
+                        <input
+                            type="url"
+                            id="github"
+                            placeholder="https://github.com/username"
+                            oninput="updateResume()">
+
+                    </div>
+
+                </div>
+
+
+                <!-- CAREER OBJECTIVE -->
+
+                <div class="form-section">
+
+                    <h3>
+                        🎯 Career Objective
+                    </h3>
+
+                    <div class="input-group">
+
+                        <textarea
+                            id="objective"
+                            placeholder="Write your career objective..."
+                            oninput="updateResume()"></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFESSIONAL SUMMARY -->
+
+                <div class="form-section">
+
+                    <h3>
+                        ✨ Professional Summary
+                    </h3>
+
+                    <div class="input-group">
+
+                        <textarea
+                            id="summary"
+                            placeholder="Write your professional summary..."
+                            oninput="updateResume()"></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EDUCATION -->
+
+                <div class="form-section">
+
+                    <div class="section-title-row">
+
+                        <h3>
+                            🎓 Education
+                        </h3>
+
+                        <button
+                            type="button"
+                            class="add-btn"
+                            onclick="addEducation()">
+
+                            + Add
+
+                        </button>
+
+                    </div>
+
+                    <div id="educationContainer"></div>
+
+                </div>
+
+
+                <!-- EXPERIENCE -->
+
+                <div class="form-section">
+
+                    <div class="section-title-row">
+
+                        <h3>
+                            💼 Work Experience
+                        </h3>
+
+                        <button
+                            type="button"
+                            class="add-btn"
+                            onclick="addExperience()">
+
+                            + Add
+
+                        </button>
+
+                    </div>
+
+                    <div id="experienceContainer"></div>
+
+                </div>
+
+
+                <!-- PROJECTS -->
+
+                <div class="form-section">
+
+                    <div class="section-title-row">
+
+                        <h3>
+                            📁 Projects
+                        </h3>
+
+                        <button
+                            type="button"
+                            class="add-btn"
+                            onclick="addProject()">
+
+                            + Add
+
+                        </button>
+
+                    </div>
+
+                    <div id="projectsContainer"></div>
+
+                </div>
+
+
+                <!-- CERTIFICATIONS -->
+
+                <div class="form-section">
+
+                    <div class="section-title-row">
+
+                        <h3>
+                            📜 Certifications
+                        </h3>
+
+                        <button
+                            type="button"
+                            class="add-btn"
+                            onclick="addCertification()">
+
+                            + Add
+
+                        </button>
+
+                    </div>
+
+                    <div id="certificationsContainer"></div>
+
+                </div>
+
+
+                <!-- SKILLS -->
+
+                <div class="form-section">
+
+                    <h3>
+                        🛠 Skills
+                    </h3>
+
+                    <div class="skill-input-row">
+
+                        <input
+                            type="text"
+                            id="skillInput"
+                            placeholder="e.g. Java">
+
+                        <button
+                            type="button"
+                            class="add-btn"
+                            onclick="addSkill()">
+
+                            Add
+
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="skillsContainer"
+                        class="skills-container">
+                    </div>
+
+                </div>
+
+
+                <!-- ACHIEVEMENTS -->
+
+                <div class="form-section">
+
+                    <h3>
+                        🏆 Achievements
+                    </h3>
+
+                    <div class="input-group">
+
+                        <textarea
+                            id="achievements"
+                            placeholder="Enter your achievements..."
+                            oninput="updateResume()"></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LANGUAGES -->
+
+                <div class="form-section">
+
+                    <h3>
+                        🌐 Languages
+                    </h3>
+
+                    <div class="input-group">
+
+                        <input
+                            type="text"
+                            id="languages"
+                            placeholder="English, Hindi, French"
+                            oninput="updateResume()">
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAVE -->
+
+                <button
+                    type="button"
+                    class="save-btn"
+                    onclick="saveResumeToBackend()">
+
+                    💾 Save Resume
+
+                </button>
+
+
+                <!-- DOWNLOAD -->
+
+                <button
+                    type="button"
+                    class="download-btn"
+                    onclick="downloadResume()">
+
+                    📄 Download Resume
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= PREVIEW ================= -->
+
+            <div class="preview-section">
+
+                <div
+                    class="resume-preview professional"
+                    id="resumePreview">
+
+
+                    <!-- HEADER -->
+
+                    <div class="resume-header">
+
+                        <h1 id="previewName">
+                            Your Name
+                        </h1>
+
+                        <div class="contact-row">
+
+                            <span id="previewLocation">
+                                📍 Your Location
+                            </span>
+
+                            <span class="separator">
+                                |
+                            </span>
+
+                            <span id="previewEmail">
+                                ✉ email@example.com
+                            </span>
+
+                            <span class="separator">
+                                |
+                            </span>
+
+                            <span id="previewPhone">
+                                📱 +91 XXXXX XXXXX
+                            </span>
+
+                        </div>
+
+                        <div class="social-row">
+
+                            <span id="previewLinkedin">
+                                LinkedIn
+                            </span>
+
+                            <span class="separator">
+                                |
+                            </span>
+
+                            <span id="previewGithub">
+                                GitHub
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <!-- OBJECTIVE -->
+
+                    <div
+                        class="resume-part"
+                        id="objectiveSection">
+
+                        <h2>
+                            CAREER OBJECTIVE
+                        </h2>
+
+                        <p id="previewObjective">
+                            Your career objective will appear here.
+                        </p>
+
+                    </div>
+
+
+                    <!-- SUMMARY -->
+
+                    <div
+                        class="resume-part"
+                        id="summarySection">
+
+                        <h2>
+                            PROFESSIONAL SUMMARY
+                        </h2>
+
+                        <p id="previewSummary">
+                            Your professional summary will appear here.
+                        </p>
+
+                    </div>
+
+
+                    <!-- EDUCATION -->
+
+                    <div
+                        class="resume-part"
+                        id="educationSection">
+
+                        <h2>
+                            EDUCATION
+                        </h2>
+
+                        <div id="previewEducation">
+                            Your education will appear here.
+                        </div>
+
+                    </div>
+
+
+                    <!-- EXPERIENCE -->
+
+                    <div
+                        class="resume-part"
+                        id="experienceSection">
+
+                        <h2>
+                            EXPERIENCE
+                        </h2>
+
+                        <div id="previewExperience">
+                            Your experience will appear here.
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROJECTS -->
+
+                    <div
+                        class="resume-part"
+                        id="projectsSection">
+
+                        <h2>
+                            PROJECTS
+                        </h2>
+
+                        <div id="previewProjects">
+                            Your projects will appear here.
+                        </div>
+
+                    </div>
+
+
+                    <!-- CERTIFICATIONS -->
+
+                    <div
+                        class="resume-part"
+                        id="certificationsSection">
+
+                        <h2>
+                            CERTIFICATIONS
+                        </h2>
+
+                        <div id="previewCertifications">
+                            Your certifications will appear here.
+                        </div>
+
+                    </div>
+
+
+                    <!-- SKILLS -->
+
+                    <div
+                        class="resume-part"
+                        id="skillsSection">
+
+                        <h2>
+                            SKILLS
+                        </h2>
+
+                        <div
+                            id="previewSkills"
+                            class="preview-skills">
+
+                            Your skills will appear here.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACHIEVEMENTS -->
+
+                    <div
+                        class="resume-part"
+                        id="achievementsSection">
+
+                        <h2>
+                            ACHIEVEMENTS
+                        </h2>
+
+                        <p id="previewAchievements">
+                            Your achievements will appear here.
+                        </p>
+
+                    </div>
+
+
+                    <!-- LANGUAGES -->
+
+                    <div
+                        class="resume-part"
+                        id="languagesSection">
+
+                        <h2>
+                            LANGUAGES
+                        </h2>
+
+                        <p id="previewLanguages">
+                            Your languages will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            ResumeBuilder
+        </h3>
+
+        <p>
+            Build your professional resume easily
+            and get your dream job.
+        </p>
+
+        <p class="copyright">
+            © 2026 ResumeBuilder.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= EXISTING JS ================= -->
+
+    <script src="js/script.js"></script>
+
+
+    <!-- ================= RAZORPAY ================= -->
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+    <!-- ================= PAYMENT FUNCTIONS ================= -->
+
+    <script>
+
+        async function selectFreePlan() {
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        alert("Please login first.");
+        window.location.href = "login.html";
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:8080/api/auth/change-plan",
+            {
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                },
+
+                body: JSON.stringify({
+                    plan: "BASIC"
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                data.message ||
+                "Unable to switch to Free plan."
+            );
+        }
+
+        // Free plan activate
+        localStorage.setItem(
+            "subscriptionPlan",
+            "BASIC"
+        );
+
+        // Refresh subscription UI
+        if (typeof window.refreshPremiumStatus === "function") {
+            await window.refreshPremiumStatus();
+        }
+
+        alert(
+            "✅ Free plan activated successfully!"
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Free plan error:",
+            error
+        );
+
+        alert(
+            "❌ Unable to switch to Free plan.\n\n" +
+            error.message
+        );
+    }
+}
+
+
+        function selectPlan(plan) {
+
+            if (plan === "PRO") {
+
+                alert(
+                    "💎 Pro Plan\n\n" +
+                    "Pro plan payment is coming soon.\n\n" +
+                    "Currently Premium is available for ₹199/month."
+                );
+
+            }
+
+        }
+
+
+        async function buyPremium() {
+
+            const token =
+                localStorage.getItem("token");
+
+
+            if (!token) {
+
+                alert(
+                    "Please login first to purchase Premium."
+                );
+
+                window.location.href =
+                    "login.html";
+
+                return;
+
+            }
+
+
+            try {
+
+                // ================================
+                // CREATE PAYMENT ORDER
+                // ================================
+
+                const response =
+                    await fetch(
+                        "http://localhost:8080/api/payment/create-order",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json",
+
+                                "Authorization":
+                                    "Bearer " + token
+                            },
+
+                            body: JSON.stringify({
+
+                                planType: "PREMIUM"
+
+                            })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                console.log(
+                    "Payment order response:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to create payment order."
+                    );
+
+                }
+
+
+                // ================================
+                // RAZORPAY OPTIONS
+                // ================================
+
+                const options = {
+
+                    key:
+                        "rzp_test_TXYTjpq6YRQMm3",
+
+
+                    amount:
+                        data.amount,
+
+
+                    currency:
+                        data.currency || "INR",
+
+
+                    name:
+                        "ResumeBuilder",
+
+
+                    description:
+                        "Premium Plan - ₹199/month",
+
+
+                    order_id:
+                        data.orderId,
+
+
+                    handler:
+                        async function (paymentResponse) {
+
+                            console.log(
+                                "Razorpay payment response:",
+                                paymentResponse
+                            );
+
+
+                            try {
+
+                                // ================================
+                                // VERIFY PAYMENT
+                                // ================================
+
+                                const verifyResponse =
+                                    await fetch(
+                                        "http://localhost:8080/api/payment/verify",
+                                        {
+                                            method: "POST",
+
+                                            headers: {
+                                                "Content-Type":
+                                                    "application/json",
+
+                                                "Authorization":
+                                                    "Bearer " + token
+                                            },
+
+                                            body: JSON.stringify({
+
+                                                razorpay_payment_id:
+                                                    paymentResponse.razorpay_payment_id,
+
+                                                razorpay_order_id:
+                                                    paymentResponse.razorpay_order_id,
+
+                                                razorpay_signature:
+                                                    paymentResponse.razorpay_signature
+
+                                            })
+                                        }
+                                    );
+
+
+                                const verifyData =
+                                    await verifyResponse.json();
+
+
+                                console.log(
+                                    "Payment verification response:",
+                                    verifyData
+                                );
+
+
+                                if (!verifyResponse.ok) {
+
+                                    throw new Error(
+                                        verifyData.message ||
+                                        "Payment verification failed."
+                                    );
+
+                                }
+
+
+                                if (verifyData.success) {
+
+                                    localStorage.setItem(
+                                        "subscriptionPlan",
+                                        "PREMIUM"
+                                    );
+
+
+                                    alert(
+                                        "🎉 Payment Successful!\n\n" +
+                                        "Premium plan activated successfully."
+                                    );
+
+
+                                    window.location.reload();
+
+                                } else {
+
+                                    throw new Error(
+                                        verifyData.message ||
+                                        "Payment verification failed."
+                                    );
+
+                                }
+
+                            } catch (error) {
+
+                                console.error(
+                                    "Payment verification error:",
+                                    error
+                                );
+
+
+                                alert(
+                                    "Payment verification failed.\n\n" +
+                                    (
+                                        error.message ||
+                                        "Please contact support."
+                                    )
+                                );
+
+                            }
+
+                        },
+
+
+                    prefill: {
+
+                        name: "",
+
+                        email: "",
+
+                        contact: ""
+
+                    },
+
+
+                    notes: {
+
+                        plan:
+                            "PREMIUM"
+
+                    },
+
+
+                    theme: {
+
+                        color:
+                            "#6366f1"
+
+                    },
+
+
+                    modal: {
+
+                        ondismiss:
+                            function () {
+
+                                console.log(
+                                    "Razorpay checkout closed."
+                                );
+
+                            }
+
+                    }
+
+                };
+
+
+                // ================================
+                // RAZORPAY INSTANCE
+                // ================================
+
+                const razorpay =
+                    new Razorpay(options);
+
+
+                // ================================
+                // PAYMENT FAILED
+                // ================================
+
+                razorpay.on(
+                    "payment.failed",
+                    function (response) {
+
+                        console.error(
+                            "Payment failed:",
+                            response.error
+                        );
+
+
+                        alert(
+                            "❌ Payment Failed\n\n" +
+                            (
+                                response.error.description ||
+                                "Please try again."
+                            )
+                        );
+
+                    }
+                );
+
+
+                // ================================
+                // OPEN RAZORPAY
+                // ================================
+
+                razorpay.open();
+
+
+            } catch (error) {
+
+                console.error(
+                    "Premium payment error:",
+                    error
+                );
+
+
+                alert(
+                    error.message ||
+                    "Unable to start payment."
+                );
+
+            }
+
+        }
+
+    </script>
+
+
+    <!-- ================= IMPORT RESUME JS ================= -->
+
+    <script>
+
+        const IMPORT_API_URL =
+            "http://localhost:8080/api/resumes/import";
+
+
+        let resumeImportRunning =
+            false;
+
+
+        // ================================
+        // OPEN FILE PICKER
+        // ================================
+
+        function openResumeImport() {
+
+            const input =
+                document.getElementById(
+                    "resumeImportInput"
+                );
+
+
+            if (input) {
+
+                input.click();
+
+            }
+
+        }
+
+
+        // ================================
+        // IMPORT RESUME
+        // ================================
+
+        async function importResumeFile(event) {
+
+            if (resumeImportRunning) {
+
+                console.log(
+                    "Import already running. Ignoring duplicate request."
+                );
+
+                return;
+
+            }
+
+
+            const input =
+                event.target;
+
+
+            const file =
+                input.files &&
+                input.files[0];
+
+
+            if (!file) {
+
+                return;
+
+            }
+
+
+            resumeImportRunning =
+                true;
+
+
+            try {
+
+                // ================================
+                // FILE TYPE
+                // ================================
+
+                const fileName =
+                    file.name.toLowerCase();
+
+
+                const isPDF =
+                    fileName.endsWith(".pdf");
+
+
+                const isDOCX =
+                    fileName.endsWith(".docx");
+
+
+                if (!isPDF && !isDOCX) {
+
+                    throw new Error(
+                        "Only PDF and DOCX files are supported."
+                    );
+
+                }
+
+
+                // ================================
+                // FILE SIZE
+                // ================================
+
+                const MAX_FILE_SIZE =
+                    20 * 1024 * 1024;
+
+
+                if (file.size > MAX_FILE_SIZE) {
+
+                    throw new Error(
+                        "File size must be less than 20 MB."
+                    );
+
+                }
+
+
+                // ================================
+                // LOGIN CHECK
+                // ================================
+
+                const token =
+                    localStorage.getItem(
+                        "token"
+                    );
+
+
+                if (!token) {
+
+                    alert(
+                        "Please login first."
+                    );
+
+
+                    window.location.href =
+                        "login.html";
+
+
+                    return;
+
+                }
+
+
+                // ================================
+                // STATUS
+                // ================================
+
+                const statusBox =
+                    document.getElementById(
+                        "importStatus"
+                    );
+
+
+                const statusText =
+                    document.getElementById(
+                        "importStatusText"
+                    );
+
+
+                if (statusBox) {
+
+                    statusBox.style.display =
+                        "block";
+
+                }
+
+
+                if (statusText) {
+
+                    statusText.textContent =
+                        "⏳ Importing resume... Please wait.";
+
+                }
+
+
+                // ================================
+                // FORM DATA
+                // ================================
+
+                const formData =
+                    new FormData();
+
+
+                formData.append(
+                    "file",
+                    file
+                );
+
+
+                // ================================
+                // API REQUEST
+                // ================================
+
+                console.log(
+                    "Sending resume import request..."
+                );
+
+
+                const response =
+                    await fetch(
+                        IMPORT_API_URL,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Authorization":
+                                    "Bearer " + token
+                            },
+
+                            body: formData
+                        }
+                    );
+
+
+                // ================================
+                // RESPONSE
+                // ================================
+
+                let data = {};
+
+
+                try {
+
+                    data =
+                        await response.json();
+
+                } catch (error) {
+
+                    console.error(
+                        "Response JSON error:",
+                        error
+                    );
+
+                }
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to import resume."
+                    );
+
+                }
+
+
+                // ================================
+                // EXTRACTED TEXT
+                // ================================
+
+                if (
+                    !data.text ||
+                    data.text.trim() === ""
+                ) {
+
+                    throw new Error(
+                        "No text could be extracted from this resume."
+                    );
+
+                }
+
+
+                // ================================
+                // SAVE IMPORTED TEXT
+                // ================================
+
+                localStorage.setItem(
+                    "importedResumeText",
+                    data.text
+                );
+
+
+                localStorage.setItem(
+                    "importedResumeFileName",
+                    data.fileName ||
+                    file.name
+                );
+
+
+                console.log(
+                    "Resume imported successfully."
+                );
+
+
+                console.log(
+                    "Extracted text:",
+                    data.text
+                );
+
+
+                // ================================
+                // SUCCESS STATUS
+                // ================================
+
+                if (statusText) {
+
+                    statusText.textContent =
+                        "✅ Resume imported successfully.";
+
+                }
+
+
+                // ================================
+                // SCROLL TO BUILDER
+                // ================================
+
+                const builder =
+                    document.getElementById(
+                        "builder"
+                    );
+
+
+                if (builder) {
+
+                    builder.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+
+                // ================================
+                // IMPORT HANDLER
+                // ================================
+
+                if (
+                    typeof window.handleImportedResume ===
+                    "function"
+                ) {
+
+                    window.handleImportedResume(
+                        data.text
+                    );
+
+                }
+
+
+                alert(
+                    "Resume imported successfully!"
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Resume import error:",
+                    error
+                );
+
+
+                const statusText =
+                    document.getElementById(
+                        "importStatusText"
+                    );
+
+
+                if (statusText) {
+
+                    statusText.textContent =
+                        "❌ " +
+                        (
+                            error.message ||
+                            "Unable to import resume."
+                        );
+
+                }
+
+
+                alert(
+                    error.message ||
+                    "Something went wrong while importing resume."
+                );
+
+
+            } finally {
+
+                resumeImportRunning =
+                    false;
+
+
+                input.value =
+                    "";
+
+            }
+
+        }
+
+
+        // ================================
+        // FILE INPUT LISTENER
+        // ================================
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const input =
+                    document.getElementById(
+                        "resumeImportInput"
+                    );
+
+
+                if (!input) {
+
+                    return;
+
+                }
+
+
+                input.addEventListener(
+                    "change",
+                    importResumeFile
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

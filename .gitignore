@@ -1,0 +1,40 @@
+# Java / Spring Boot
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Environment / Secrets
+.env
+.env.*
+application.properties
+application-local.properties
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Frontend Build
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary / Backup
+*.tmp
+*.temp
+*.bak
+*.swp

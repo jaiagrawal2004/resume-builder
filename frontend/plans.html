@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plans & Pricing - ResumeBuilder</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/plans.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Resume<span>Builder</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="templates.html">
+                Templates
+            </a>
+
+            <a href="plans.html" class="active">
+                Plans
+            </a>
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         PRICING HEADER
+    ========================== -->
+
+    <section class="pricing-header">
+
+        <div class="pricing-badge">
+            Choose Your Plan
+        </div>
+
+        <h1>
+            Build a Resume That
+            <span>Gets You Hired</span>
+        </h1>
+
+        <p>
+            Choose the plan that fits your career goals.
+            Upgrade anytime and unlock powerful AI and ATS features.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         CURRENT PLAN
+    ========================== -->
+
+    <section class="current-plan-section">
+
+        <div class="current-plan-card">
+
+            <div>
+                <span class="current-label">
+                    Current Plan
+                </span>
+
+                <h3 id="currentPlan">
+                    FREE
+                </h3>
+            </div>
+
+            <div id="currentPlanDescription">
+                You are currently using the Free plan.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRICING CARDS
+    ========================== -->
+
+    <section class="pricing-section">
+
+        <div class="pricing-container">
+
+
+            <!-- =====================
+                 FREE
+            ====================== -->
+
+            <div class="pricing-card">
+
+                <div class="plan-icon">
+                    🆓
+                </div>
+
+                <h2>
+                    Free
+                </h2>
+
+                <p class="plan-description">
+                    Perfect for getting started.
+                </p>
+
+                <div class="price">
+
+                    <span class="currency">
+                        ₹
+                    </span>
+
+                    <span class="amount">
+                        0
+                    </span>
+
+                    <span class="period">
+                        /month
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="plan-button free-button"
+                    onclick="selectPlan('FREE')"
+                >
+                    Current Plan
+                </button>
+
+
+                <div class="feature-title">
+                    Free includes:
+                </div>
+
+                <ul class="plan-features">
+
+                    <li>
+                        <span>✓</span>
+                        1 Resume
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Basic Resume Builder
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        3 Basic Templates
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Personal Information
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Education & Experience
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Skills & Projects
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Basic PDF Download
+                    </li>
+
+                    <li class="disabled">
+                        <span>×</span>
+                        AI Resume Builder
+                    </li>
+
+                    <li class="disabled">
+                        <span>×</span>
+                        ATS Score Checker
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =====================
+                 PREMIUM
+            ====================== -->
+
+            <div class="pricing-card premium-card">
+
+                <div class="popular-badge">
+                    ⭐ MOST POPULAR
+                </div>
+
+                <div class="plan-icon">
+                    ⭐
+                </div>
+
+                <h2>
+                    Premium
+                </h2>
+
+                <p class="plan-description">
+                    Everything you need to create a professional resume.
+                </p>
+
+                <div class="price">
+
+                    <span class="currency">
+                        ₹
+                    </span>
+
+                    <span class="amount">
+                        199
+                    </span>
+
+                    <span class="period">
+                        /month
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="plan-button premium-button"
+                    onclick="selectPlan('PREMIUM')"
+                >
+                    Upgrade to Premium
+                </button>
+
+
+                <div class="feature-title">
+                    Everything in Free, plus:
+                </div>
+
+                <ul class="plan-features">
+
+                    <li>
+                        <span>✓</span>
+                        Unlimited Resumes
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        All Premium Templates
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Professional Summary
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Career Objective
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Skills Suggestions
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Content Improvement
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Grammar Correction
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        ATS Score Checker
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Missing Keywords
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Skills Match Analysis
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Formatting Suggestions
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Unlimited PDF Downloads
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Remove Watermark
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =====================
+                 PRO
+            ====================== -->
+
+            <div class="pricing-card pro-card">
+
+                <div class="plan-icon">
+                    💎
+                </div>
+
+                <h2>
+                    Pro
+                </h2>
+
+                <p class="plan-description">
+                    Advanced tools for serious job seekers.
+                </p>
+
+                <div class="price">
+
+                    <span class="currency">
+                        ₹
+                    </span>
+
+                    <span class="amount">
+                        499
+                    </span>
+
+                    <span class="period">
+                        /month
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="plan-button pro-button"
+                    onclick="selectPlan('PRO')"
+                >
+                    Upgrade to Pro
+                </button>
+
+
+                <div class="feature-title">
+                    Everything in Premium, plus:
+                </div>
+
+                <ul class="plan-features">
+
+                    <li>
+                        <span>✓</span>
+                        Advanced ATS Analysis
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Multiple Resume Versions
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Job Description Optimization
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        AI Resume Rewrite
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Advanced Keyword Matching
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Job-Specific Resume
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Priority AI Processing
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Priority Support
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PREMIUM FEATURES
+    ========================== -->
+
+    <section class="premium-features-section">
+
+        <div class="section-heading">
+
+            <span>
+                ⭐ PREMIUM
+            </span>
+
+            <h2>
+                Unlock More Powerful Resume Tools
+            </h2>
+
+            <p>
+                Take your resume to the next level with AI-powered tools.
+            </p>
+
+        </div>
+
+
+        <div class="premium-feature-grid">
+
+
+            <div class="premium-feature">
+
+                <div class="feature-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI Resume Builder
+                </h3>
+
+                <p>
+                    Generate professional resume content using AI.
+                </p>
+
+            </div>
+
+
+            <div class="premium-feature">
+
+                <div class="feature-icon">
+                    📊
+                </div>
+
+                <h3>
+                    ATS Score
+                </h3>
+
+                <p>
+                    Analyze your resume and improve its ATS compatibility.
+                </p>
+
+            </div>
+
+
+            <div class="premium-feature">
+
+                <div class="feature-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Keyword Analysis
+                </h3>
+
+                <p>
+                    Find missing keywords and improve job matching.
+                </p>
+
+            </div>
+
+
+            <div class="premium-feature">
+
+                <div class="feature-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    AI Improvements
+                </h3>
+
+                <p>
+                    Improve grammar, wording and professional tone.
+                </p>
+
+            </div>
+
+
+            <div class="premium-feature">
+
+                <div class="feature-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Premium Templates
+                </h3>
+
+                <p>
+                    Access modern, professional and creative templates.
+                </p>
+
+            </div>
+
+
+            <div class="premium-feature">
+
+                <div class="feature-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Unlimited PDF
+                </h3>
+
+                <p>
+                    Download your resumes without monthly limits.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================== -->
+
+    <section class="pricing-faq">
+
+        <h2>
+            Frequently Asked Questions
+        </h2>
+
+
+        <div class="faq-item">
+
+            <h3>
+                Can I cancel Premium anytime?
+            </h3>
+
+            <p>
+                Yes. Your subscription can be cancelled according to
+                the payment provider's subscription terms.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>
+                Can I upgrade from Premium to Pro?
+            </h3>
+
+            <p>
+                Yes. Users can upgrade their plan whenever they need
+                advanced features.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>
+                Are my resumes saved?
+            </h3>
+
+            <p>
+                Your resumes will be associated with your account
+                when connected to the backend.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            ResumeBuilder
+        </h3>
+
+        <p>
+            Build your professional resume and get closer to your dream job.
+        </p>
+
+        <p class="copyright">
+            © 2026 ResumeBuilder. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="js/plans.js"></script>
+
+</body>
+
+</html>
