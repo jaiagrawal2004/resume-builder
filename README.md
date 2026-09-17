@@ -428,14 +428,12 @@ Possible future enhancements:
 -   Multiple professional resume templates
 -   Drag-and-drop resume sections
 -   Live resume preview
--   Resume ATS score
 -   AI-powered resume suggestions
 -   AI job description matching
 -   Resume download as PDF
 -   User profile management
 -   Admin dashboard
 -   Cloud deployment
--   Docker support
 -   Automated CI/CD
 -   Improved mobile responsiveness
 
